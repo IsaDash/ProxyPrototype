@@ -18,8 +18,8 @@ func getIP() string {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	defer conn.Close()
+
 	localAddr := conn.LocalAddr().(*net.UDPAddr)
 	return localAddr.String()
 }
@@ -73,7 +73,6 @@ func main()  {
 	if err != nil {
 		panic(err)
 	}
-
 	fmt.Println("Response status:", res.Status)
 
 	scanner := bufio.NewScanner(res.Body)
