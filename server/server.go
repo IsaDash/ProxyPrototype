@@ -7,7 +7,7 @@ import (
 )
 
 func hello(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "1, john doe, 567 Johnson Ave\n")
+	fmt.Fprintf(w, "hello\n")
 	//for name, value := range req.Header {
 	//	fmt.Println(name, value)
 	//}
