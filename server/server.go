@@ -17,11 +17,13 @@ func hello(w http.ResponseWriter, req *http.Request) {
 	fowardedIp := req.Header.Get("X-Forwarded-For")
 	verified := req.Header.Get("VERIFIED")
 	dn := req.Header.Get("DN")
+	clientIp := req.Header.Get("Client-IP")
 
-	fmt.Println(realIp)
-	fmt.Println(fowardedIp)
-	fmt.Println(verified)
-	fmt.Println(dn)
+	fmt.Fprintf(w, "realIP: "+ string(realIp) + "\n")
+	fmt.Fprintf(w, "forwardedIP: "+ string(fowardedIp) + "\n")
+	fmt.Fprintf(w, "verified: "+ string(verified) + "\n")
+	fmt.Fprintf(w, "dn: "+ string(dn) + "\n")
+	fmt.Fprintf(w, "clientIP: "+ clientIp + "\n")
 
 	resp := `{"status": "CREATED"}`
 	w.WriteHeader(http.StatusCreated)

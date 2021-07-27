@@ -8,6 +8,8 @@ services:
   nginx:
     build: "./nginx"
     ports:
-    - "7000:7000"
+      - target: 7000
+        published: 7000
+        mode: host
     depends_on:
       - server
